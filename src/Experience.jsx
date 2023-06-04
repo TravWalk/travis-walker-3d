@@ -8,7 +8,7 @@ export default function Experience()
 
     return <>
 
-        <Environment preset="city" />
+        {/* <Environment preset="city" /> */}
 
         <color args={ ['#241a1a'] } attach="background" />
 
