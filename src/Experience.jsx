@@ -9,7 +9,24 @@ export default function Experience()
 {
     const computer = useGLTF('/macbook.gltf',GLTFLoader)
     const ambientLight = new AmbientLight(0xffffff, 1);
+
+    let modelScale = 1;
+    let textScale = 1;
+    let textPosition = [ 2, 0.75, 0.75 ];
+
+    if (/Mobi|Android/i.test(navigator.userAgent)) {
+        modelScale = 0.6;
+        textScale = 0.5;
+        textPosition = [ 1, 0.15, 0.15 ]
+      } else {
+        textScale = 1; 
+        modelScale = 1;
+        textPosition = [ 2, 0.75, 0.75 ];
+      }
+
     return <>
+
+
 
         {/* <Environment
             background={true}
@@ -32,7 +49,7 @@ export default function Experience()
     config={ {mass: 2, tension: 400} }
     snap={ { mass: 4, tension: 400 } }
     >
-
+        
         <ambientLight args={[0xffffff, 1]} />
         <Float rotationIntensity={ 0.4 }>
             <rectAreaLight
@@ -46,6 +63,7 @@ export default function Experience()
             <primitive 
                 object={ computer.scene } 
                 position-y={-1.2}
+                scale = {[modelScale, modelScale, modelScale]}
                 
                 >
                     <Html
@@ -60,8 +78,8 @@ export default function Experience()
                 </primitive>
                 <Text
                     font="./bangers-v20-latin-regular.woff"
-                    fontSize={ 1 }
-                    position= { [ 2, 0.75, 0.75 ] }
+                    fontSize={ 1 * textScale}
+                    position= { textPosition }
                     rotation-y={ -1.25 }
                     maxWidth={ 2 }
                     textAlign="center"
