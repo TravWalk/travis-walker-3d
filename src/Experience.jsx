@@ -1,5 +1,6 @@
 import { Text, Html, ContactShadows, PresentationControls, Float, Environment, useGLTF} from '@react-three/drei'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+// import environmentTexture from '../public/potsdamer_platz_1k.hdr';
 
 
 export default function Experience()
@@ -8,7 +9,14 @@ export default function Experience()
 
     return <>
 
-        {/* <Environment preset="city" /> */}
+        {/* <Environment
+            background={true}
+            background-color="#ffffff"
+            files={[environmentTexture]}
+            preset="city"
+            intensity={1.2}
+        /> */}
+
 
         <color args={ ['#241a1a'] } attach="background" />
 
