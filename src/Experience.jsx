@@ -1,12 +1,14 @@
 import { Text, Html, ContactShadows, PresentationControls, Float, Environment, useGLTF} from '@react-three/drei'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import { AmbientLight } from 'three';
+
 // import environmentTexture from '../public/potsdamer_platz_1k.hdr';
 
 
 export default function Experience()
 {
     const computer = useGLTF('/macbook.gltf',GLTFLoader)
-
+    const ambientLight = new AmbientLight(0xffffff, 1);
     return <>
 
         {/* <Environment
@@ -20,6 +22,8 @@ export default function Experience()
 
         <color args={ ['#241a1a'] } attach="background" />
 
+    
+
     <PresentationControls
     global 
     rotation={ [ 0.13, 0.1, 0 ] }
@@ -28,6 +32,8 @@ export default function Experience()
     config={ {mass: 2, tension: 400} }
     snap={ { mass: 4, tension: 400 } }
     >
+
+        <ambientLight args={[0xffffff, 1]} />
         <Float rotationIntensity={ 0.4 }>
             <rectAreaLight
                 width={ 2.5 }
