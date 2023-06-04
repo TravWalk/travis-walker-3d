@@ -1,9 +1,10 @@
 import { Text, Html, ContactShadows, PresentationControls, Float, Environment, useGLTF} from '@react-three/drei'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
 
 export default function Experience()
 {
-    const computer = useGLTF('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf')
+    const computer = useGLTF('/macbook.gltf',GLTFLoader)
 
     return <>
 
